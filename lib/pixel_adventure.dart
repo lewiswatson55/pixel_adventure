@@ -9,7 +9,7 @@ import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/level.dart';
 
 class PixelAdventure extends FlameGame
-    with HasKeyboardHandlerComponents, DragCallbacks {
+    with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection {
   @override
   Color backgroundColor() => const Color(0xFF211F30);
   late final CameraComponent cam;
@@ -73,14 +73,19 @@ class PixelAdventure extends FlameGame
         //player.playerDirection = PlayerDirection.right;
         player.horizontalMovement = 1;
         break;
-      case JoystickDirection.up: // Case Not Stock - likely will need to be replaced later in tutorial
+      case JoystickDirection
+            .up: // Case Not Stock - likely will need to be replaced later in tutorial
         if (player.isOnGround) {
           player.hasJumped = true;
         }
         break;
+      case JoystickDirection.down:
+        player.isPassthrough = true;
+        break;
       default:
         //player.playerDirection = PlayerDirection.none;
         player.horizontalMovement = 0;
+        player.isPassthrough = false;
         break;
     }
   }

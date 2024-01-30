@@ -13,7 +13,11 @@
         ":/automap-tiles.tsx": {
             "scaleInDock": 1
         },
+        "Fruit.tsx": {
+            "dynamicWrapping": true
+        },
         "PixelAdventure.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -48,7 +52,7 @@
             }
         }
     },
-    "last.imagePath": "C:/Users/Watson/Desktop/DarkForest",
+    "last.imagePath": "C:/Users/Watson/Flutter Projects/FlameTutorial/pixel_adventure/assets/images/Items/Fruits",
     "map.height": 23,
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
@@ -68,5 +72,6 @@
     "tileset.tileSize": {
         "height": 16,
         "width": 16
-    }
+    },
+    "tileset.type": 1
 }
