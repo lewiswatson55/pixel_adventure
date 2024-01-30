@@ -14,7 +14,7 @@ class PixelAdventure extends FlameGame
   Color backgroundColor() => const Color(0xFF211F30);
   late final CameraComponent cam;
   late JoystickComponent joystick;
-  bool showJoystick = false;
+  bool showJoystick = true;
 
   // Default character set here
   Player player = Player(character: "Mask Dude");
@@ -72,6 +72,11 @@ class PixelAdventure extends FlameGame
       case JoystickDirection.downRight:
         //player.playerDirection = PlayerDirection.right;
         player.horizontalMovement = 1;
+        break;
+      case JoystickDirection.up: // Case Not Stock - likely will need to be replaced later in tutorial
+        if (player.isOnGround) {
+          player.hasJumped = true;
+        }
         break;
       default:
         //player.playerDirection = PlayerDirection.none;
